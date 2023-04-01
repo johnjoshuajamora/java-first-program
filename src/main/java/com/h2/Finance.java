@@ -1,6 +1,7 @@
 package com.h2;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.h2.BestLoanRates;
@@ -8,15 +9,13 @@ import com.h2.MortgageCalculator;
 import com.h2.SavingsCalculator;
 
 public class Finance {
-    public final static String BEST_LOAN_RATES = "bestLoanRates";
-    public final static String SAVINGS_CALCULATOR = "savingsCalculator";
-    public final static String MORTGAGE_CALCULATOR = "mortgageCalculator";
+    private static final Map<String, String> commandsToUsage = new HashMap<>();
 
-    public static final Map<String, String> commandsToUsage = Map.of(
-            BEST_LOAN_RATES, "usage: bestLoanRates",
-            SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",
-            MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>"
-    );
+    static {
+        commandsToUsage.put("bestLoanRates", "usage: bestLoanRates");
+        commandsToUsage.put("savingsCalculator", "usage: savingsCalculator <credits separated by ','> <debits separated by ','>");
+        commandsToUsage.put("mortgageCalculator", "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>");
+    }
 
     private static boolean validateCommandArguments(String[] args) {
         switch (args[0]) {
