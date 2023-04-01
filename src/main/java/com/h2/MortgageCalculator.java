@@ -15,4 +15,30 @@ public class MortgageCalculator {
     private static int getNumberOfPayments() {
         return termInYears * 12;
     }
+
+    private static float getMonthlyInterestRate() {
+        float interestRate = (annualRate / 100) / 12;
+
+        return interestRate;
+    }
+
+    public void calculateMonthlyPayment() {
+        long p = loanAmount;
+        float r = getMonthlyInterestRate();
+        int n = getNumberOfPayments();
+        double M = p * (((r * Math.pow(1 + r, n))) / ((Math.pow((1 + r), n)) - 1));
+
+        this.monthlyPayment = M;
+    }
+
+    @Override
+    public String toString() {
+        DecimalFormat df = new DecimalFormat("####0.00");
+
+        return "monthlyPayment: " + df.format(monthlyPayment);
+    }
+
+    public static void main(String[] args) {
+        
+    }
 }
