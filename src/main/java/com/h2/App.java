@@ -13,7 +13,7 @@ public class App
     public static int doubleTheNumber(int number) {
         return number * 2;
     }
-
+    
     private static int add(int[] numbers) {
         int sum = 0;
 
