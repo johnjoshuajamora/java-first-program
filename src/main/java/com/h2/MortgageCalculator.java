@@ -1,5 +1,7 @@
 package com.h2;
 
+import java.text.DecimalFormat;
+
 public class MortgageCalculator {
     private static long loanAmount;
     private static int termInYears;
@@ -39,6 +41,6 @@ public class MortgageCalculator {
     }
 
     public static void main(String[] args) {
-        
+
     }
 }
